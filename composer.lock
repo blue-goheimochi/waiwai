@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d86063e8a2cd93e29c8bda8f2b310066",
-    "content-hash": "9febf0575bdf5fbad1c042618f340aac",
+    "hash": "22c207c1ba0042ce4e6835b5d5207539",
+    "content-hash": "880f97cefdc20624b02f046513537e26",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -361,6 +361,58 @@
                 "tokenizer"
             ],
             "time": "2015-12-05 17:17:57"
+        },
+        {
+            "name": "laravel-ja/comja5",
+            "version": "1.0.15",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-ja/comja5.git",
+                "reference": "807481dbee96c02b2f2b6b89f4b206ef4b67b7f8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-ja/comja5/zipball/807481dbee96c02b2f2b6b89f4b206ef4b67b7f8",
+                "reference": "807481dbee96c02b2f2b6b89f4b206ef4b67b7f8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "4.5.0"
+            },
+            "bin": [
+                "bin/comja5"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Comja\\": "Comja/"
+                },
+                "files": [
+                    "helper.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hirohisa Kawase",
+                    "email": "hiro.soft@gmail.com",
+                    "role": "developer"
+                }
+            ],
+            "description": "Translate comments in laravel/laravel 5.* project to Japanese",
+            "keywords": [
+                "japanese",
+                "laravel",
+                "resource"
+            ],
+            "time": "2015-12-22 00:02:31"
         },
         {
             "name": "laravel/framework",
