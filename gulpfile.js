@@ -12,5 +12,13 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.less('app.less');
+    mix.less('app.less', elixir.config.publicDir + '/css', {
+        paths: [
+            'node_modules/bootstrap/less',
+        ]
+    })
+    .copy(
+        'node_modules/bootstrap/dist/js/bootstrap.min.js',
+        elixir.config.publicDir + '/js'
+    );
 });
