@@ -10,6 +10,9 @@
       </li>
       @if (Auth::guest())
       <li class="nav-item">
+        <a class="nav-link" href="/register">ユーザー登録</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="/login">ログイン</a>
       </li>
       @else

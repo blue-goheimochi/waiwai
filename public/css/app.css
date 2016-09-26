@@ -4725,11 +4725,6 @@ body {
 #toggleMenu {
   clear: right; }
 
-#login {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #eee; }
-
 #login .form-signin {
   max-width: 330px;
   padding: 15px;
@@ -4762,11 +4757,6 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0; }
 
-#register {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #eee; }
-
 #register .form-signin {
   max-width: 330px;
   padding: 15px;
@@ -4789,11 +4779,6 @@ body {
 
 #register .form-signin .form-control:focus {
   z-index: 2; }
-
-#add_topic {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #eee; }
 
 #add_topic .form-signin {
   max-width: 330px;
