@@ -21,3 +21,9 @@ Route::post('register', 'Auth\AuthController@postRegister');
 Route::get('login', 'Auth\AuthController@getLogin');
 Route::post('login', 'Auth\AuthController@postLogin');
 Route::get('logout', 'Auth\AuthController@getLogout');
+
+Route::get('topic/new', 'TopicController@getNewTopic')->middleware('auth');
+Route::post('topic/new', 'TopicController@postNewTopic')->middleware('auth');
+Route::post('topic/store', 'TopicController@postStoreTopic')->middleware('auth');
+Route::get('topic/complete/{id}', 'TopicController@getCompleteTopic')->middleware('auth');
+Route::get('topic/{id}', 'TopicController@getTopicDetail');
