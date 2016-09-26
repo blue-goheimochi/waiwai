@@ -4786,4 +4786,32 @@ body {
 #register .form-signin .form-control:focus {
   z-index: 2; }
 
+#add_topic {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee; }
+
+#add_topic .form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto; }
+
+#add_topic .form-signin .form-signin-heading,
+#add_topic .form-signin .checkbox {
+  margin-bottom: 10px; }
+
+#add_topic .form-signin .checkbox {
+  font-weight: normal; }
+
+#add_topic .form-signin .form-control {
+  position: relative;
+  height: auto;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 10px; }
+
+#add_topic .form-signin .form-control:focus {
+  z-index: 2; }
+
 /*# sourceMappingURL=app.css.map */
