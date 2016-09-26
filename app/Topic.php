@@ -23,4 +23,9 @@ class Topic extends Model
      * @var array
      */
     protected $fillable = ['user_id', 'title', 'body', 'status'];
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
