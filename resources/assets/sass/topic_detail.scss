@@ -1,0 +1,137 @@
+#topic_detail h1 {
+  margin-bottom: 10px;
+  padding: 0 0 10px;
+  color: #222222;
+  font-weight: bold;
+  font-size: 1.2em;
+  border-bottom: 2px solid #dcdcdc;
+}
+
+@media (min-width: 544px) {
+  #topic_detail h1 {
+    font-size: 1.4em;
+  }
+}
+
+@media (min-width: 768px) {
+  #topic_detail h1 {
+    font-size: 1.4em;
+  }
+}
+
+@media (min-width: 992px) {
+  #topic_detail h1 {
+    font-size: 1.8em;
+  }
+}
+
+@media (min-width: 1200px) {
+  #topic_detail h1 {
+    font-size: 1.8em;
+  }
+}
+
+#topic_detail .date, #topic_detail .questioner {
+  margin-bottom: 10px;
+  font-size: 0.6em;
+  color: #AAAAAA;
+}
+
+@media (min-width: 544px) {
+  #topic_detail .date, #topic_detail .questioner {
+    font-size: 0.6em;
+  }
+}
+
+@media (min-width: 768px) {
+  #topic_detail .date, #topic_detail .questioner {
+    font-size: 0.6em;
+  }
+}
+
+@media (min-width: 992px) {
+  #topic_detail .date, #topic_detail .questioner {
+    font-size: 0.8em;
+  }
+}
+
+@media (min-width: 1200px) {
+  #topic_detail .date, #topic_detail .questioner {
+    font-size: 0.8em;
+  }
+}
+
+#topic_detail .body {
+  font-size: 0.8em;
+}
+
+@media (min-width: 544px) {
+  #topic_detail .body {
+    font-size: 0.9em;
+  }
+}
+
+@media (min-width: 768px) {
+  #topic_detail .body {
+    font-size: 0.9em;
+  }
+}
+
+@media (min-width: 992px) {
+  #topic_detail .body {
+    font-size: 1em;
+  }
+}
+
+@media (min-width: 1200px) {
+  #topic_detail .body {
+    font-size: 1em;
+  }
+}
+
+#topic_detail h2 {
+  margin-bottom: 10px;
+  padding: 0 0 10px;
+  color: #222222;
+  font-weight: bold;
+  font-size: 0.8em;
+  border-bottom: 2px solid #dcdcdc;
+}
+
+@media (min-width: 544px) {
+  #topic_detail h2 {
+    font-size: 0.8em;
+  }
+}
+
+@media (min-width: 768px) {
+  #topic_detail h2 {
+    font-size: 0.8em;
+  }
+}
+
+@media (min-width: 992px) {
+  #topic_detail h2 {
+    font-size: 1em;
+  }
+}
+
+@media (min-width: 1200px) {
+  #topic_detail h2 {
+    font-size: 1em;
+  }
+}
+
+#topic_detail .comment_no_login {
+  background: #EEEEEE;
+  font-size: 0.8em;
+}
+
+#topic_detail .comment_no_login p {
+  padding: 15px 0;
+  text-align: center;
+}
+
+#topic_detail .comment_btn {
+  margin-bottom: 10px;
+}
