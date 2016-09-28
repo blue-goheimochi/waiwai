@@ -10,15 +10,25 @@
     <div class="col-md-12">
       <div class="date">投稿日時: {{ $topic->created_at }}</div>
       <h1>{{ $topic->title }}</h1>
-      <div class="questioner text-right">質問者：{{ $topic->user->name }}</div>
+      <div class="questioner">質問者：{{ $topic->user->name }}</div>
     </div>
     <div class="col-md-8">
       <p class="body">{!! nl2br(e($topic->body)) !!}</p>
+      <h2>コメント一覧</h2>
+      {{ $topic->user->comments }}
+      @forelse($topic->comments as $comment)
+      <div class="comment">
+        <div class="body">{!! nl2br(e($comment->body)) !!}</div>
+        <div class="name">コメント投稿者：{{ $comment->user->name }}</div>
+      </div>
+      @empty
+      <p>まだコメントがありません</p>
+      @endforelse
       <h2>コメント投稿</h2>
       @if (Auth::guest())
       <div class="comment_no_login"><p class="text-center">コメントするには<a href="/login">ログイン</a>してください</p></div>
       @else
-      <div class="comment_btn"><a class="btn btn-outline-secondary btn-block  ">コメントする</a></div>
+      <div class="comment_btn"><a href="/comment/new/{{ $topic->user->id }}" class="btn btn-outline-secondary btn-block">コメントする</a></div>
       @endif
     </div>
     <div class="col-sm-4">
