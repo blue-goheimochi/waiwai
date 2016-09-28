@@ -4835,6 +4835,9 @@ body {
   font-size: 0.6em;
   color: #AAAAAA; }
 
+#topic_detail .questioner {
+  text-align: right; }
+
 @media (min-width: 544px) {
   #topic_detail .date, #topic_detail .questioner {
     font-size: 0.6em; } }
@@ -4904,5 +4907,48 @@ body {
 
 #topic_detail .comment_btn {
   margin-bottom: 10px; }
+
+#topic_detail .comment {
+  margin-bottom: 10px; }
+
+#topic_detail .comment .name {
+  font-size: 0.6em;
+  color: #AAAAAA;
+  text-align: right; }
+
+@media (min-width: 544px) {
+  #topic_detail .comment .name {
+    font-size: 0.6em; } }
+
+@media (min-width: 768px) {
+  #topic_detail .comment .name {
+    font-size: 0.6em; } }
+
+@media (min-width: 992px) {
+  #topic_detail .comment .name {
+    font-size: 0.8em; } }
+
+@media (min-width: 1200px) {
+  #topic_detail .comment .name {
+    font-size: 0.8em; } }
+
+#topic_detail .comment .body {
+  font-size: 0.8em; }
+
+@media (min-width: 544px) {
+  #topic_detail .comment .body {
+    font-size: 0.8em; } }
+
+@media (min-width: 768px) {
+  #topic_detail .comment .body {
+    font-size: 0.8em; } }
+
+@media (min-width: 992px) {
+  #topic_detail .comment .body {
+    font-size: 1em; } }
+
+@media (min-width: 1200px) {
+  #topic_detail .comment .body {
+    font-size: 1em; } }
 
 /*# sourceMappingURL=app.css.map */
