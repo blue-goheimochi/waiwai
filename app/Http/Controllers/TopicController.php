@@ -3,26 +3,35 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Topic;
-use App\User;
+use App\Repositories\TopicRepositoryInterface;
+use App\Repositories\UserRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 class TopicController extends Controller
 {
+
+    /** @var UserRepositoryInterface */
+    protected $user;
+
+    /** @var TopicRepositoryInterface */
+    protected $topic;
+
     /**
      * Create a new authentication controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(UserRepositoryInterface $user, TopicRepositoryInterface $topic)
     {
+        $this->user  = $user;
+        $this->topic = $topic;
     }
     
     public function getTopicDetail($id)
     {
-        $topic = Topic::where('id', $id)->where('status', 1)->firstOrFail();
+        $topic = $this->topic->getTopic($id);
         return view('topic.detail', ['topic' => $topic]);
     }
     
@@ -57,13 +66,14 @@ class TopicController extends Controller
         $inputs = $request->all();
         $user = Auth::user();
         
-        $topic = new Topic;
-        $topic->user_id = $user->id;
-        $topic->title   = $inputs['title'];
-        $topic->body    = $inputs['body'];
-        $topic->save();
+        $params = [
+            'user_id' => $user->id,
+            'title'   => $inputs['title'],
+            'body'    => $inputs['body'],
+        ];
+        $newTopic = $this->topic->create($params);
         
-        return Redirect::to('/topic/complete/' . $topic->id);
+        return Redirect::to('/topic/complete/' . $newTopic->id);
     }
     
     public function getCompleteTopic($id)

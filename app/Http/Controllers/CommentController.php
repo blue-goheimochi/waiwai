@@ -3,27 +3,40 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Comment;
-use App\Topic;
-use App\User;
+use App\Repositories\CommentRepositoryInterface;
+use App\Repositories\TopicRepositoryInterface;
+use App\Repositories\UserRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 class CommentController extends Controller
 {
+
+    /** @var UserRepositoryInterface */
+    protected $user;
+
+    /** @var TopicRepositoryInterface */
+    protected $topic;
+
+    /** @var CommentRepositoryInterface */
+    protected $comment;
+    
     /**
      * Create a new authentication controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(UserRepositoryInterface $user, TopicRepositoryInterface $topic, CommentRepositoryInterface $comment)
     {
+        $this->user    = $user;
+        $this->topic   = $topic;
+        $this->comment = $comment;
     }
     
     public function getNewComment($topic_id)
     {
-        $topic = Topic::where('id', $topic_id)->where('status', 1)->firstOrFail();
+        $topic = $this->topic->getTopic($topic_id);
         return view('comment.new', ['topic' => $topic]);
     }
     
@@ -52,15 +65,16 @@ class CommentController extends Controller
         
         $inputs = $request->all();
         $user   = Auth::user();
-        $topic  = Topic::where('id', $inputs['topic_id'])->where('status', 1)->firstOrFail();
+        $topic  = $this->topic->getTopic( $inputs['topic_id']);
         
-        $comment = new Comment;
-        $comment->user_id  = $user->id;
-        $comment->topic_id = $topic->id;
-        $comment->body    = $inputs['body'];
-        $comment->save();
+        $params = [
+            'user_id'  => $user->id,
+            'topic_id' => $topic->id,
+            'body'     => $inputs['body'],
+        ];
+        $newComment = $this->comment->create($params);
         
-        return Redirect::to('/comment/complete/' . $topic->id . '/' . $comment->id);
+        return Redirect::to('/comment/complete/' . $topic->id . '/' . $newComment->id);
     }
     
     public function getCompleteComment($topic_id, $comment_id)
