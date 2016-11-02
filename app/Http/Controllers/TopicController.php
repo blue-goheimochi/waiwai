@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Repositories\TopicRepositoryInterface;
 use App\Repositories\UserRepositoryInterface;
-use Illuminate\Http\Request;
+use App\Http\Requests\TopicStoreRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
@@ -40,28 +40,18 @@ class TopicController extends Controller
         return view('topic.new');
     }
     
-    public function postNewTopic(Request $request)
+    public function postNewTopic(TopicStoreRequest $request)
     {
-        $this->validate($request, [
-            'title' => 'required|max:200',
-            'body'  => 'required|max:5000',
-        ]);
-        
         $inputs = $request->all();
         
         return view('topic.confirm', compact('inputs'));
     }
     
-    public function postStoreTopic(Request $request)
+    public function postStoreTopic(TopicStoreRequest $request)
     {
         if( $request->get('action') === 'back' ) {
           return Redirect::to('/topic/new')->withInput($request->only(['title', 'body']));
         }
-        
-        $this->validate($request, [
-            'title' => 'required|max:200',
-            'body'  => 'required|max:5000',
-        ]);
         
         $inputs = $request->all();
         $user = Auth::user();

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\CommentRepositoryInterface;
 use App\Repositories\TopicRepositoryInterface;
 use App\Repositories\UserRepositoryInterface;
-use Illuminate\Http\Request;
+use App\Http\Requests\CommentStoreRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
@@ -40,28 +40,18 @@ class CommentController extends Controller
         return view('comment.new', ['topic' => $topic]);
     }
     
-    public function postNewComment(Request $request)
+    public function postNewComment(CommentStoreRequest $request)
     {
-        $this->validate($request, [
-            'body'     => 'required|max:5000',
-            'topic_id' => 'required',
-        ]);
-        
         $inputs = $request->all();
         
         return view('comment.confirm', compact('inputs'));
     }
     
-    public function postStoreComment(Request $request)
+    public function postStoreComment(CommentStoreRequest $request)
     {
         if( $request->get('action') === 'back' ) {
           return Redirect::to('/comment/new/' . $request->get('topic_id'))->withInput($request->only(['body', 'topic_id']));
         }
-        
-        $this->validate($request, [
-            'body'     => 'required|max:5000',
-            'topic_id' => 'required',
-        ]);
         
         $inputs = $request->all();
         $user   = Auth::user();
