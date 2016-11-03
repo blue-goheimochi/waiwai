@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Repositories\UserRepositoryInterface;
+use Auth;
 use Validator;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginRequest;
+use App\Http\Requests\UserRegisterRequest;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller
@@ -22,8 +25,10 @@ class AuthController extends Controller
     |
     */
 
-    use AuthenticatesAndRegistersUsers;
-    
+    use AuthenticatesAndRegistersUsers {
+        postLogin as parentPostLogin;
+    }
+
     /** @var UserRepositoryInterface */
     protected $user;
 
@@ -38,19 +43,9 @@ class AuthController extends Controller
         $this->user = $user;
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
+    public function postLogin(LoginRequest $request)
     {
-        return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6',
-        ]);
+        return $this->parentPostLogin($request);
     }
 
     /**
@@ -66,5 +61,11 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function postRegister(UserRegisterRequest $request)
+    {
+        Auth::login($this->create($request->all()));
+        return redirect($this->redirectPath());
     }
 }
