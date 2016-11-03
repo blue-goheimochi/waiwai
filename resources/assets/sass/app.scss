@@ -1,3 +1,6 @@
+$enable-rounded: false !default;
+$brand-primary: #FF4A43 !default;
+
 @import "node_modules/bootstrap/scss/bootstrap";
 @import "common.scss";
 @import "login.scss";
