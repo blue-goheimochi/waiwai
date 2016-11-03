@@ -8,14 +8,14 @@ class UserRepository implements UserRepositoryInterface
 {
     /** @var User */
     protected $eloquent;
-    
+
     public function __construct(User $eloquent)
     {
         $this->eloquent = $eloquent;
     }
-    
+
     public function create(array $params)
     {
-        $this->eloquent->create($params);
+        return $this->eloquent->create($params);
     }
 }
