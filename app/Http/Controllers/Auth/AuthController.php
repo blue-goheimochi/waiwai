@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Repositories\UserRepositoryInterface;
 use Auth;
-use Validator;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\UserRegisterRequest;
+use App\Services\UserService;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller
@@ -29,18 +28,14 @@ class AuthController extends Controller
         postLogin as parentPostLogin;
     }
 
-    /** @var UserRepositoryInterface */
-    protected $user;
-
     /**
      * Create a new authentication controller instance.
      *
      * @return void
      */
-    public function __construct(UserRepositoryInterface $user)
+    public function __construct()
     {
         $this->middleware('guest', ['except' => 'getLogout']);
-        $this->user = $user;
     }
 
     public function postLogin(LoginRequest $request)
@@ -48,24 +43,10 @@ class AuthController extends Controller
         return $this->parentPostLogin($request);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return User
-     */
-    protected function create(array $data)
+    public function postRegister(UserRegisterRequest $request, UserService $user)
     {
-        return $this->user->create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
-    }
-
-    public function postRegister(UserRegisterRequest $request)
-    {
-        Auth::login($this->create($request->all()));
+        $result = $user->registerUser($request->all());
+        Auth::login($result);
         return redirect($this->redirectPath());
     }
 }
