@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\UserRegisterRequest;
 use App\Services\UserService;
+use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller
@@ -28,14 +28,18 @@ class AuthController extends Controller
         postLogin as parentPostLogin;
     }
 
+    /** @var Guard */
+    protected $auth;
+
     /**
      * Create a new authentication controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Guard $auth)
     {
         $this->middleware('guest', ['except' => 'getLogout']);
+        $this->auth = $auth;
     }
 
     public function postLogin(LoginRequest $request)
@@ -46,7 +50,7 @@ class AuthController extends Controller
     public function postRegister(UserRegisterRequest $request, UserService $user)
     {
         $result = $user->registerUser($request->all());
-        Auth::login($result);
+        $this->auth->login($result);
         return redirect($this->redirectPath());
     }
 }
