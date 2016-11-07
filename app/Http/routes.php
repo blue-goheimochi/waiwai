@@ -26,6 +26,11 @@ Route::post('topic/store', 'TopicController@postStoreTopic')->middleware('auth')
 Route::get('topic/complete/{id}', 'TopicController@getCompleteTopic')->middleware('auth');
 Route::get('topic/{id}', 'TopicController@getTopicDetail');
 
+Route::get('link/new', 'LinkController@getNewLink')->middleware('auth');
+Route::post('link/new', 'LinkController@postNewLink')->middleware('auth');
+Route::post('link/store', 'LinkController@postStoreLink')->middleware('auth');
+Route::get('link/complete/{id}', 'LinkController@getCompleteLink')->middleware('auth');
+
 Route::get('comment/new/{topic_id}', 'CommentController@getNewComment')->middleware('auth');
 Route::post('comment/new', 'CommentController@postNewComment')->middleware('auth');
 Route::post('comment/store', 'CommentController@postStoreComment')->middleware('auth');
