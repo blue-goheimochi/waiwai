@@ -3,6 +3,7 @@ $brand-primary: #FF4A43 !default;
 
 @import "node_modules/bootstrap/scss/bootstrap";
 @import "common.scss";
+@import "home.scss";
 @import "login.scss";
 @import "register.scss";
 @import "add_topic.scss";

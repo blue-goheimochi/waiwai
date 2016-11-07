@@ -19,6 +19,11 @@ class TopicRepository implements TopicRepositoryInterface
         return $this->eloquent->where('id', $id)->where('status', 1)->firstOrFail();
     }
     
+    public function getNewTopics($num = 5)
+    {
+        return $this->eloquent->where('status', 1)->orderBy('created_at', 'desc')->take($num)->get();
+    }
+    
     public function create(array $params)
     {
         return $this->eloquent->create($params);

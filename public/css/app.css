@@ -4731,6 +4731,63 @@ body {
 #toggleMenu {
   clear: right; }
 
+#home h2 {
+  margin-bottom: 10px;
+  padding: 0 0 10px;
+  color: #222222;
+  font-weight: bold;
+  font-size: 0.8em;
+  border-bottom: 2px solid #dcdcdc; }
+
+@media (min-width: 544px) {
+  #home h2 {
+    font-size: 0.8em; } }
+
+@media (min-width: 768px) {
+  #home h2 {
+    font-size: 0.8em; } }
+
+@media (min-width: 992px) {
+  #home h2 {
+    font-size: 1em; } }
+
+@media (min-width: 1200px) {
+  #home h2 {
+    font-size: 1em; } }
+
+#home .container {
+  margin-top: 5px; }
+
+#home .new-topics {
+  padding: 8px 15px;
+  border: 2px solid #dcdcdc; }
+
+#home .topic {
+  padding: 5px 0 10px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #dcdcdc; }
+
+#home .topic .title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #0581f9; }
+
+#home .new-topics .topic .title a {
+  font-weight: bold;
+  color: #0581f9; }
+
+#home .topic .contents {
+  font-size: 0.8em; }
+
+#home .topic .contents .date {
+  float: right; }
+
+#home .topic .contents .body {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
 #login {
   background: #EDEDED;
   padding-top: 100px; }
@@ -4875,30 +4932,6 @@ body {
 
 @media (min-width: 1200px) {
   #topic_detail .body {
-    font-size: 1em; } }
-
-#topic_detail h2 {
-  margin-bottom: 10px;
-  padding: 0 0 10px;
-  color: #222222;
-  font-weight: bold;
-  font-size: 0.8em;
-  border-bottom: 2px solid #dcdcdc; }
-
-@media (min-width: 544px) {
-  #topic_detail h2 {
-    font-size: 0.8em; } }
-
-@media (min-width: 768px) {
-  #topic_detail h2 {
-    font-size: 0.8em; } }
-
-@media (min-width: 992px) {
-  #topic_detail h2 {
-    font-size: 1em; } }
-
-@media (min-width: 1200px) {
-  #topic_detail h2 {
     font-size: 1em; } }
 
 #topic_detail .comment_no_login {
