@@ -9,6 +9,7 @@ use App\Repositories\LinkRepositoryInterface;
 use App\Http\Requests\LinkStoreRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use App\Services\CrawlerService;
 
 class LinkController extends Controller
 {
@@ -33,39 +34,56 @@ class LinkController extends Controller
         $this->topic = $topic;
         $this->link  = $link;
     }
-    
+
     public function getNewLink()
     {
         return view('link.new');
     }
-    
-    public function postNewLink(LinkStoreRequest $request)
+
+    public function postNewLink(LinkStoreRequest $request, CrawlerService $crawler)
     {
         $inputs = $request->all();
-        
-        return view('link.confirm', compact('inputs'));
+
+        $crawler->getUrl($inputs['link']);
+        $title = $crawler->getTitle();
+        $description = $crawler->getDescription();
+
+        return view('link.confirm', compact('inputs', 'title', 'description'));
     }
-    
-    public function postStoreLink(LinkStoreRequest $request)
+
+    public function postStoreLink(LinkStoreRequest $request, CrawlerService $crawler)
     {
         if( $request->get('action') === 'back' ) {
           return Redirect::to('/link/new')->withInput($request->only(['link', 'body']));
         }
-        
+
         $inputs = $request->all();
         $user = Auth::user();
-        
+
+        $crawler->getUrl($inputs['link']);
+        $title = $crawler->getTitle();
+        $description = $crawler->getDescription();
+
+        $params = [
+            'user_id'     => $user->id,
+            'link'        => $inputs['link'],
+            'title'       => $title,
+            'description' => $description,
+        ];
+        $newLink = $this->link->create($params);
+
         $params = [
             'user_id' => $user->id,
-            'title'   => $inputs['title'],
+            'title'   => $title,
             'body'    => $inputs['body'],
+            'link_id' => $newLink->id,
         ];
         $newTopic = $this->topic->create($params);
-        
+
         return Redirect::to('/link/complete/' . $newTopic->id);
     }
-    
-    public function getCompleteTopic($id)
+
+    public function getCompleteLink($id)
     {
         return view('link.complete', ['id' => $id]);
     }

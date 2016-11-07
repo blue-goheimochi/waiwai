@@ -10,6 +10,10 @@
     <h2 class="form-signin-heading">トピック投稿確認</h2>
     <h3>URL</h3>
     <p>{{ $inputs['link'] }}</p>
+    <h3>タイトル</h3>
+    <p>{{ $title }}</p>
+    <h3>概要</h3>
+    <p>{{ $description }}</p>
     <h3>コメント</h3>
     <p>{!! nl2br(e($inputs['body'])) !!}</p>
     <input type="hidden" id="link" name="link" value="{{ $inputs['link'] }}">

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLinksTable extends Migration
+class AlterTopicsAddLinkId extends Migration
 {
     /**
      * Run the migrations.

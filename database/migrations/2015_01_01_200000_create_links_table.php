@@ -17,10 +17,10 @@ class CreateLinksTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('link', 2500)->unique();
             $table->string('title', 500);
-            $table->text('body');
+            $table->text('description')->nullable();
             $table->integer('status')->unsigned()->default(1);
             $table->timestamps();
-            
+
             $table->foreign('user_id')->references('id')->on('users');
         });
     }
