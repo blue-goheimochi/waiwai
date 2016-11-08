@@ -6,7 +6,7 @@
   <div class="collapse navbar-toggleable-xs pull-sm-right pull-md-right pull-lg-right pull-xl-right pull-xs-left" id="toggleMenu">
     <ul class="nav navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="/topic/new">トピック投稿</a>
+        <a class="nav-link" href="/link/new">リンク投稿</a>
       </li>
       @if (Auth::guest())
       <li class="nav-item">
