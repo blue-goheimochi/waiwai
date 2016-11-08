@@ -4958,7 +4958,8 @@ body {
   color: #AAAAAA;
   float: left;
   width: 80px;
-  text-align: center; }
+  text-align: center;
+  word-break: break-word; }
 
 #topic_detail .comment .body {
   margin-left: 80px;
@@ -5035,3 +5036,6 @@ body {
   font-size: 0.8em;
   color: #888888;
   text-align: right; }
+
+#topic_detail .comment .body .text {
+  word-break: break-word; }
