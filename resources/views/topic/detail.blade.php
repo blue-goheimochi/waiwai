@@ -24,7 +24,7 @@
       </div>
       <div class="comment-wrap">
         @forelse($topic->comments as $comment)
-        <div class="comment clearfix">
+        <div class="comment clearfix" id="comment{{ $comment->id }}">
           <div class="name">{{ $comment->user->name }}</div>
           <div class="body">
             <div class="text">{!! nl2br(e($comment->body)) !!}</div>
