@@ -22,5 +22,9 @@ elixir(function(mix) {
     .copy(
         'node_modules/jquery/dist/jquery.min.js',
         elixir.config.publicDir + '/js'
+    )
+    .copy(
+        'node_modules/font-awesome/fonts/**',
+        elixir.config.publicDir + '/fonts'
     );
 });

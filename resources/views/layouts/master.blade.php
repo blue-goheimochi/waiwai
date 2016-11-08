@@ -8,6 +8,7 @@
     <meta name="author" content="">
     <title>@yield('pageTitle')</title>
     <link href="/css/app.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   </head>
   <body id="@yield('pageId')">
     @include('layouts.nav')

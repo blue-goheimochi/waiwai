@@ -31,64 +31,66 @@
   }
 }
 
-#topic_detail .date, #topic_detail .questioner {
+#topic_detail .data .date, #topic_detail .data .name {
   margin-bottom: 10px;
+  margin-right: 10px;
   font-size: 0.6em;
-  color: #AAAAAA;
+  color: #888888;
+  float: left;
 }
 
-#topic_detail .questioner {
+#topic_detail .data .name {
   text-align: right;
 }
 
 @media (min-width: 544px) {
-  #topic_detail .date, #topic_detail .questioner {
+  #topic_detail .data .date, #topic_detail .data .name {
     font-size: 0.6em;
   }
 }
 
 @media (min-width: 768px) {
-  #topic_detail .date, #topic_detail .questioner {
+  #topic_detail .data .date, #topic_detail .data .name {
     font-size: 0.6em;
   }
 }
 
 @media (min-width: 992px) {
-  #topic_detail .date, #topic_detail .questioner {
+  #topic_detail .data .date, #topic_detail .data .name {
     font-size: 0.8em;
   }
 }
 
 @media (min-width: 1200px) {
-  #topic_detail .date, #topic_detail .questioner {
+  #topic_detail .data .date, #topic_detail .data .name {
     font-size: 0.8em;
   }
 }
 
-#topic_detail .body {
+#topic_detail .main .body {
   font-size: 0.8em;
 }
 
 @media (min-width: 544px) {
-  #topic_detail .body {
+  #topic_detail .main .body {
     font-size: 0.9em;
   }
 }
 
 @media (min-width: 768px) {
-  #topic_detail .body {
+  #topic_detail .main .body {
     font-size: 0.9em;
   }
 }
 
 @media (min-width: 992px) {
-  #topic_detail .body {
+  #topic_detail .main .body {
     font-size: 1em;
   }
 }
 
 @media (min-width: 1200px) {
-  #topic_detail .body {
+  #topic_detail .main .body {
     font-size: 1em;
   }
 }
@@ -114,35 +116,42 @@
 #topic_detail .comment .name {
   font-size: 0.6em;
   color: #AAAAAA;
-  text-align: right;
-}
-
-@media (min-width: 544px) {
-  #topic_detail .comment .name {
-    font-size: 0.6em;
-  }
-}
-
-@media (min-width: 768px) {
-  #topic_detail .comment .name {
-    font-size: 0.6em;
-  }
-}
-
-@media (min-width: 992px) {
-  #topic_detail .comment .name {
-    font-size: 0.8em;
-  }
-}
-
-@media (min-width: 1200px) {
-  #topic_detail .comment .name {
-    font-size: 0.8em;
-  }
+  float: left;
+  width: 80px;
+  text-align: center;
 }
 
 #topic_detail .comment .body {
+  margin-left: 80px;
+  padding: 12px 15px 10px;
+  border: 1px solid #CCCCCC;
+  background: #FFFFFF;
   font-size: 0.7em;
+  position: relative;
+}
+
+@media (min-width: 544px) {
+  #topic_detail .comment .name {
+    font-size: 0.6em;
+  }
+}
+
+@media (min-width: 768px) {
+  #topic_detail .comment .name {
+    font-size: 0.6em;
+  }
+}
+
+@media (min-width: 992px) {
+  #topic_detail .comment .name {
+    font-size: 0.8em;
+  }
+}
+
+@media (min-width: 1200px) {
+  #topic_detail .comment .name {
+    font-size: 0.8em;
+  }
 }
 
 @media (min-width: 544px) {
@@ -167,4 +176,44 @@
   #topic_detail .comment .body {
     font-size: 0.9em;
   }
+}
+
+#topic_detail .main {
+  padding: 10px 5px 0;
+  margin-bottom: 15px;
+  border-bottom: 1px dashed #AAAAAA;
+}
+
+#topic_detail .comment-wrap {
+  margin-bottom: 20px;
+}
+
+#topic_detail .comment .body:before {
+  content: '';
+  display: inline-block;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-top: 10px solid transparent;
+  position: absolute;
+  border-right-color: rgba(0,0,0,0.2);
+  top: 7px;
+  left: -11px;
+}
+
+#topic_detail .comment .body:after {
+  content: '';
+  display: inline-block;
+  border-right: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-top: 9px solid transparent;
+  position: absolute;
+  border-right-color: #FFFFFF;
+  top: 8px;
+  left: -9px;
+}
+
+#topic_detail .comment .body .date {
+  font-size: 0.8em;
+  color: #888888;
+  text-align: right;
 }

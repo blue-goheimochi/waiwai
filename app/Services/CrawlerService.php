@@ -46,6 +46,12 @@ class CrawlerService
      */
     public function getDescription()
     {
-        return $this->crawler->filterXpath('//meta[@property="og:description"]')->attr('content');
+        $description = null;
+        if($this->crawler->filterXpath('//meta[@property="og:description"]')->count()) {
+            $description = $this->crawler->filterXpath('//meta[@property="og:description"]')->attr('content');
+        } else if($this->crawler->filterXpath('//meta[@name="description"]')->count()) {
+            $description = $this->crawler->filterXpath('//meta[@name="description"]')->attr('content');
+        }
+        return $description;
     }
 }
