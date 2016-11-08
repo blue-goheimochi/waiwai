@@ -36,6 +36,6 @@ class Topic extends Model
 
     public function link()
     {
-        return $this->hasOne('\App\DataAccess\Eloquent\Link', 'link_id', 'id');
+        return $this->hasOne('\App\DataAccess\Eloquent\Link', 'id', 'link_id');
     }
 }
