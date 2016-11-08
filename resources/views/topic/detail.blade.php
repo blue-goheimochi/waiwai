@@ -8,7 +8,11 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
+      @if ($topic->link==null)
+      <h1>{{ $topic->title }}</h1>
+      @else
       <h1><a href="{{ $topic->link->link }}" target="_blank">{{ $topic->title }}</a></h1>
+      @endif
       <div class="data clearfix">
         <div class="name clearfix"><i class="fa fa-user fa-fw" aria-hidden="true"></i> {{ $topic->user->name }}</div>
         <div class="date"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i> {{ $topic->created_at }}</div>
