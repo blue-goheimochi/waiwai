@@ -8,7 +8,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h1>{{ $topic->title }}</h1>
+      <?php var_dump($topic->link->link); ?>
+      <h1><a href="{{ $topic->link }}" target="_blank">{{ $topic->title }}</a></h1>
       <div class="data clearfix">
         <div class="name clearfix"><i class="fa fa-user fa-fw" aria-hidden="true"></i> {{ $topic->user->name }}</div>
         <div class="date"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i> {{ $topic->created_at }}</div>

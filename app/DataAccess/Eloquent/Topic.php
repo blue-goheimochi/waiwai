@@ -22,7 +22,7 @@ class Topic extends Model
      *
      * @var array
      */
-    protected $fillable = ['user_id', 'title', 'body', 'status'];
+    protected $fillable = ['user_id', 'title', 'body', 'status', 'link_id'];
 
     public function user()
     {
@@ -32,5 +32,10 @@ class Topic extends Model
     public function comments()
     {
         return $this->hasMany('\App\DataAccess\Eloquent\Comment')->where('parent_comment_id', null);
+    }
+
+    public function link()
+    {
+        return $this->hasOne('\App\DataAccess\Eloquent\Link', 'link_id', 'id');
     }
 }
