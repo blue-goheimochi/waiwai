@@ -4875,6 +4875,9 @@ body {
   font-size: 1.2em;
   border-bottom: 2px solid #dcdcdc; }
 
+#topic_detail h1 a {
+  color: #222222; }
+
 @media (min-width: 544px) {
   #topic_detail h1 {
     font-size: 1.4em; } }
