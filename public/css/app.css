@@ -5028,6 +5028,7 @@ body {
   left: -9px; }
 
 #topic_detail .comment .body .date {
+  margin-top: 8px;
   font-size: 0.8em;
   color: #888888;
   text-align: right; }
