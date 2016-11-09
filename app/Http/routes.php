@@ -31,7 +31,4 @@ Route::post('link/new', 'LinkController@postNewLink')->middleware('auth');
 Route::post('link/store', 'LinkController@postStoreLink')->middleware('auth');
 Route::get('link/complete/{id}', 'LinkController@getCompleteLink')->middleware('auth');
 
-Route::get('comment/new/{topic_id}', 'CommentController@getNewComment')->middleware('auth');
-Route::post('comment/new', 'CommentController@postNewComment')->middleware('auth');
-Route::post('comment/store', 'CommentController@postStoreComment')->middleware('auth');
-Route::get('comment/complete/{topic_id}/{comment_id}', 'CommentController@getCompleteComment')->middleware('auth');
+Route::post('comment/new', 'CommentController@postNew')->middleware('auth');

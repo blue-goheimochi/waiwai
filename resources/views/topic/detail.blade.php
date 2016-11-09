@@ -35,10 +35,32 @@
         <p>まだコメントがありません</p>
         @endforelse
       </div>
+      <div class="comment-wrap" id="new-comments">
+        <div v-for="item in items" class="comment clearfix" id="<?php echo "{{ item.id }}" ?>">
+          <div class="name"><?php echo "{{ item.name }}" ?></div>
+          <div class="body">
+            <div class="text"><?php echo "{{ item.body }}" ?></div>
+            <div class="date"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i><?php echo "{{ item.created_at }}" ?></div>
+          </div>
+        </div>
+      </div>
       @if (Auth::guest())
       <div class="comment_no_login"><p class="text-center">コメントするには<a href="/login">ログイン</a>してください</p></div>
       @else
-      <div class="comment_btn"><a href="/comment/new/{{ $topic->id }}" class="btn btn-outline-secondary btn-block">コメントする</a></div>
+      <div class="comment-post" id="comment-post">
+        <form>
+          <div class="comment clearfix">
+            <div class="name"></div>
+            <div class="body">
+              <div class="text clearfix">
+                <textarea v-model="params.body" id="comment-input"></textarea>
+                <button class="btn btn-primary btn-submit" type="button" v-on:click="submit">ワイワイ</button>
+              </div>
+            </div>
+          </div>
+          <input type="hidden" v-model="params.topic_id" value="{{ $topic->id }}">
+        </form>
+      </div>
       @endif
     </div>
     <div class="col-sm-4">

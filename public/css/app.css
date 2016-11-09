@@ -5039,3 +5039,12 @@ body {
 
 #topic_detail .comment .body .text {
   word-break: break-word; }
+
+#topic_detail .comment-post .comment textarea {
+  width: 100%;
+  height: 100px;
+  padding: 15px; }
+
+#topic_detail .comment-post .comment .btn-submit {
+  float: right;
+  display: block; }
